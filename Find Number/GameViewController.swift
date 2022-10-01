@@ -15,6 +15,8 @@ class GameViewController: UIViewController {
     
     @IBOutlet weak var statusLabel: UILabel!
     
+    @IBOutlet weak var timerLabel: UILabel!
+    
     lazy var game = Game(countItems: buttons.count)
     
     override func viewDidLoad() {
