@@ -49,7 +49,7 @@
                                             <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <segue destination="yCh-Nj-6wG" kind="show" id="KfP-YE-cSd"/>
+                                            <segue destination="MBv-yr-yAJ" kind="presentation" modalPresentationStyle="fullScreen" id="KfP-YE-cSd"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -324,6 +324,7 @@
                         <outletCollection property="buttons" destination="iI2-9i-f4l" collectionClass="NSMutableArray" id="FTm-Fc-laI"/>
                         <outletCollection property="buttons" destination="iJe-mu-WvI" collectionClass="NSMutableArray" id="Oyf-y2-AyF"/>
                         <outletCollection property="buttons" destination="Axv-MJ-UPQ" collectionClass="NSMutableArray" id="Jjd-N3-Kuj"/>
+                        <segue destination="MBv-yr-yAJ" kind="presentation" identifier="recordVC" modalPresentationStyle="fullScreen" id="ILP-DA-9eE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -495,18 +496,39 @@
         <!--Рекорд-->
         <scene sceneID="R8p-Qp-6PH">
             <objects>
-                <viewController id="yCh-Nj-6wG" sceneMemberID="viewController">
+                <viewController id="yCh-Nj-6wG" customClass="RecordViewController" customModule="Find_Number" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pDo-7U-kdA">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cy4-Yd-myU">
+                                <rect key="frame" x="174.33333333333334" y="439" width="41.333333333333343" height="20.333333333333314"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="XHz-2W-qbD"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="cy4-Yd-myU" firstAttribute="centerX" secondItem="XHz-2W-qbD" secondAttribute="centerX" id="QQS-Q4-wfe"/>
+                            <constraint firstItem="cy4-Yd-myU" firstAttribute="centerY" secondItem="XHz-2W-qbD" secondAttribute="centerY" id="bNn-Wh-Acq"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Рекорд" id="Mp4-5z-A4B"/>
+                    <navigationItem key="navigationItem" title="Рекорд" id="Mp4-5z-A4B">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="iTn-NK-S3w">
+                            <connections>
+                                <action selector="closeVC:" destination="yCh-Nj-6wG" id="dr9-NS-nPw"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="recordLabel" destination="cy4-Yd-myU" id="WOp-Dv-2vW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BAA-2A-V0j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="71" y="-606"/>
+            <point key="canvasLocation" x="1000" y="-606.39810426540282"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zfQ-YX-7m2">
@@ -526,7 +548,28 @@
             </objects>
             <point key="canvasLocation" x="-858.46153846153845" y="87.440758293838854"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="chY-AU-ab2">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MBv-yr-yAJ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="k05-rr-7hQ">
+                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="yCh-Nj-6wG" kind="relationship" relationship="rootViewController" id="jAJ-hv-TRd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JXe-F0-fqX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="70.769230769230774" y="-606.39810426540282"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="ILP-DA-9eE"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
